@@ -1,0 +1,180 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Github\\STOI\\GraphApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|c:\\github\\stoi\\graphapp\\graphapp\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|C:\\Github\\STOI\\GraphApp\\graphapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|C:\\Github\\STOI\\GraphApp\\graphapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|c:\\github\\stoi\\graphapp\\graphapp\\views\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\views\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|c:\\github\\stoi\\graphapp\\graphapp\\views\\pixeloperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\views\\pixeloperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|C:\\Github\\STOI\\GraphApp\\graphapp\\views\\baseview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\views\\baseview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|C:\\Github\\STOI\\GraphApp\\graphapp\\views\\mainwindowview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\views\\mainwindowview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|c:\\github\\stoi\\graphapp\\graphapp\\views\\imgview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B10606A-E27F-4EB5-B7B7-048D295F0457}|GraphApp\\GraphApp.csproj|solutionrelative:graphapp\\views\\imgview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Utility.cs",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\Utility.cs",
+              "RelativeDocumentMoniker": "GraphApp\\Views\\Utility.cs",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\Utility.cs",
+              "RelativeToolTip": "GraphApp\\Views\\Utility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T14:18:37.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PixelOperations.cs",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\PixelOperations.cs",
+              "RelativeDocumentMoniker": "GraphApp\\Views\\PixelOperations.cs",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\PixelOperations.cs",
+              "RelativeToolTip": "GraphApp\\Views\\PixelOperations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T12:54:49.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "GraphApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\MainWindow.xaml",
+              "RelativeToolTip": "GraphApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-15T15:27:01.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseView.cs",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\BaseView.cs",
+              "RelativeDocumentMoniker": "GraphApp\\Views\\BaseView.cs",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\BaseView.cs",
+              "RelativeToolTip": "GraphApp\\Views\\BaseView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T12:59:55.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainWindowView.cs",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\MainWindowView.cs",
+              "RelativeDocumentMoniker": "GraphApp\\Views\\MainWindowView.cs",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\MainWindowView.cs",
+              "RelativeToolTip": "GraphApp\\Views\\MainWindowView.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAEwEcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T09:37:10.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IMGView.cs",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\IMGView.cs",
+              "RelativeDocumentMoniker": "GraphApp\\Views\\IMGView.cs",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\Views\\IMGView.cs",
+              "RelativeToolTip": "GraphApp\\Views\\IMGView.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAvwIgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T16:46:27.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GraphApp\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\MainWindow.xaml.cs",
+              "RelativeToolTip": "GraphApp\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAswCMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T13:32:51.59Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "289c6678-cf1e-4f9f-bb17-29d58da90248",
+        "Display": 1,
+        "X": 0,
+        "Y": 65,
+        "Width": 800,
+        "Height": 600,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Github\\STOI\\GraphApp\\GraphApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "GraphApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Github\\STOI\\GraphApp\\GraphApp\\MainWindow.xaml",
+              "RelativeToolTip": "GraphApp\\MainWindow.xaml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADIAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-15T15:27:06.248Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
