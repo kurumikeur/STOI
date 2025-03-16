@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GraphApp.Views;
+using Microsoft.Win32;
 
 
 namespace GraphApp
@@ -58,6 +59,26 @@ namespace GraphApp
             }
         }
 
+        private void Button_Click_SaveFile(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.Filter = "PNG Image|*.png";
+            dlg.Title = "Save an Image File";
+            dlg.ShowDialog();
+            var Image = MWV.result_image;
+            if (dlg.FileName != "")
+            {
+                using (System.IO.FileStream fs = (System.IO.FileStream)dlg.OpenFile())
+                {
+                    
+                    BitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(Image));
+                    encoder.Save(fs);
+                    fs.Close();
+                }
+            }
+        }
+
         private void Button_Click_Recalculate(object sender, RoutedEventArgs e)
         {
             try
@@ -70,9 +91,17 @@ namespace GraphApp
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-
+            MWV.DeleteImg(((FrameworkElement)e.Source).DataContext);
+        }
+        private void Button_Click_MoveUp(object sender, RoutedEventArgs e)
+        {
+            MWV.MoveUp(((FrameworkElement)e.Source).DataContext);
+        }
+        private void Button_Click_MoveDown(object sender, RoutedEventArgs e)
+        {
+            MWV.MoveDown(((FrameworkElement)e.Source).DataContext);
         }
     }
 }

@@ -24,8 +24,8 @@ namespace GraphApp.Views
         private int _offset_x = 0;
         private int _offset_y = 0;
 
-        public int Width;
-        public int Height;
+        public int Width { get; set; }
+        public int Height { get; set; }
         public byte[] ImgBytes { set; get; }
 
         public string Name

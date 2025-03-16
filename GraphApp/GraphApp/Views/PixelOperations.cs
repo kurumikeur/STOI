@@ -9,9 +9,15 @@ namespace GraphApp.Views
     public class PixelOperations : BaseView
     {
         public delegate byte Operation(byte val1, byte val2, double opacity = 1);
-        public string Name;
+        public string Name { get; set; }
         public Operation _pixelOperation;
-
+        public List<PixelOperations> Operations
+        {
+            get
+            {
+                return PixelOperations.GetPixelOperationsList();
+            }
+        }
         public static List<PixelOperations> _operations = new List<PixelOperations> {
                 new PixelOperations()
                 {
