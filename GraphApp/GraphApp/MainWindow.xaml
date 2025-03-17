@@ -6,81 +6,104 @@
         xmlns:local="clr-namespace:GraphApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="583" Width="800">
-    <Grid Margin="0, 0, 0, 0" Width="Auto" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="260pt"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="100pt"/>
-        </Grid.RowDefinitions>
-        <Image Source="{Binding Path=result_image}" Margin="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto"/>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="0,10,10,10" HorizontalAlignment="Right" Width="240pt" Height="auto"  Grid.Column="1" Grid.RowSpan="2">
-            <Grid HorizontalAlignment="Right" Margin="0, 0, 0, 0" Width="240pt" Height="Auto" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80pt"></ColumnDefinition>
-                    <ColumnDefinition Width="80pt"></ColumnDefinition>
-                    <ColumnDefinition Width="80pt"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="36pt"/>
-                </Grid.RowDefinitions>
-                <ListBox x:Name="listBox" ScrollViewer.VerticalScrollBarVisibility="Visible"  d:ItemsSource="{d:SampleData}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan ="3" Margin="0,0,0,5">
-                    <!--ItemsSource="{Binding Path=Imgs}"-->
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                    <RowDefinition Height="18pt"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="32pt"/>
-                                    <ColumnDefinition Width="32pt"/>
-                                    <ColumnDefinition Width="32pt"/>
-                                    <ColumnDefinition Width="60pt"/>
-                                    <ColumnDefinition Width="60pt"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding ImgData}" Grid.ColumnSpan="3" Grid.RowSpan="6" HorizontalAlignment="Left" Margin="0, 5, 5, 5"/>
-                                <TextBlock Text="Offset X" Grid.Column="3" Grid.Row="2" Margin="0, 5, 0, 2"/>
-                                <TextBlock Text="Offset Y" Grid.Column="4" Grid.Row="2" Margin="2, 5, 2, 2"/>
-                                <TextBox Text="{Binding Offset_X}" Margin="0, 0, 2, 2" Grid.Column="3" Grid.Row="3"/>
-                                <TextBox Text="{Binding Offset_Y}" Margin="2, 0, 0, 2" Grid.Column="4" Grid.Row="3"/>
-                                <TextBlock Text="{Binding Name}" Grid.Column="3" Grid.ColumnSpan="2" Margin="0, 5, 0, 0"/>
-                                <TextBlock Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Margin="0, 5, 0, 0">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel>
+                    <TextBlock> ПопиксОпер</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid Margin="0, 0, 0, 0" Width="Auto" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="260pt"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100pt"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="{Binding Path=result_image}" Margin="10" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto"/>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="0,10,10,10" HorizontalAlignment="Right" Width="240pt" Height="auto"  Grid.Column="1" Grid.RowSpan="2">
+                        <Grid HorizontalAlignment="Right" Margin="0, 0, 0, 0" Width="240pt" Height="Auto" VerticalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80pt"></ColumnDefinition>
+                                <ColumnDefinition Width="80pt"></ColumnDefinition>
+                                <ColumnDefinition Width="80pt"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="36pt"/>
+                            </Grid.RowDefinitions>
+                            <ListBox x:Name="listBox" ScrollViewer.VerticalScrollBarVisibility="Visible"  d:ItemsSource="{d:SampleData}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan ="3" Margin="0,0,0,5">
+                                <!--ItemsSource="{Binding Path=Imgs}"-->
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                                <RowDefinition Height="18pt"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32pt"/>
+                                                <ColumnDefinition Width="32pt"/>
+                                                <ColumnDefinition Width="32pt"/>
+                                                <ColumnDefinition Width="60pt"/>
+                                                <ColumnDefinition Width="60pt"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding ImgData}" Grid.ColumnSpan="3" Grid.RowSpan="6" HorizontalAlignment="Left" Margin="0, 5, 5, 5"/>
+                                            <TextBlock Text="Offset X" Grid.Column="3" Grid.Row="2" Margin="0, 5, 0, 2"/>
+                                            <TextBlock Text="Offset Y" Grid.Column="4" Grid.Row="2" Margin="2, 5, 2, 2"/>
+                                            <TextBox Text="{Binding Offset_X}" Margin="0, 0, 2, 2" Grid.Column="3" Grid.Row="3"/>
+                                            <TextBox Text="{Binding Offset_Y}" Margin="2, 0, 0, 2" Grid.Column="4" Grid.Row="3"/>
+                                            <TextBlock Text="{Binding Name}" Grid.Column="3" Grid.ColumnSpan="2" Margin="0, 5, 0, 0"/>
+                                            <TextBlock Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Margin="0, 5, 0, 0">
                                     <Run Text="{Binding Width}"></Run>
                                     <Run> x </Run>
                                     <Run Text="{Binding Height}"></Run>
-                                </TextBlock>
-                                <Slider Value="{Binding Opacity}" Minimum="0"  Maximum="1.0" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="3"/>
-                                <ComboBox ItemsSource="{Binding operation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding operation}"  Margin="0, 0, 0, 2" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2"/>
-                                <Button Content="ЛИКВИДИРОВАТЬ" Click="Button_Click_Delete" CommandParameter="{Binding}" VerticalAlignment="Stretch" Margin="0,2,0,0" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="5"/>
-                                <Button Content="Вверх" Click="Button_Click_MoveUp" VerticalAlignment="Stretch" Margin="0,0,2,4" Grid.Column="3" Grid.Row="4" />
-                                <Button Content="Вниз" Click="Button_Click_MoveDown" VerticalAlignment="Stretch" Margin="2,0,0,4" Grid.Column="6" Grid.Row="4" />
-                                <CheckBox Margin="0, 5, 0, 0" FlowDirection="LeftToRight" Content="R" IsChecked="{Binding R}" Grid.Row="6" Grid.Column="0"/>
-                                <CheckBox Margin="0, 5, 0, 0" FlowDirection="LeftToRight" Content="G" IsChecked="{Binding G}" Grid.Row="6" Grid.Column="1"/>
-                                <CheckBox Margin="0, 5, 0, 0" FlowDirection="LeftToRight" Content="B" IsChecked="{Binding B}" Grid.Row="6" Grid.Column="2"/>
-  
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <Button  Click="Button_Click_OpenFile" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="0" Grid.Row="1">
-                    <TextBlock> Открыть <LineBreak/> изображение</TextBlock>
-                </Button>
-                <Button Click="Button_Click_SaveFile" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="1" Grid.Row="1">
-                    <TextBlock> Сохранить <LineBreak/> изображение</TextBlock>
-                </Button>
-                <Button Content="Перерасчёт" Click="Button_Click_Recalculate" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="2" Grid.Row="1"/>
-            </Grid>
-        </Border>
-    </Grid>
+                                            </TextBlock>
+                                            <Slider Value="{Binding Opacity}" Minimum="0"  Maximum="1.0" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="3"/>
+                                            <ComboBox ItemsSource="{Binding operation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding operation}"  Margin="0, 0, 0, 2" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2"/>
+                                            <Button Content="ЛИКВИДИРОВАТЬ" Click="Button_Click_Delete" CommandParameter="{Binding}" VerticalAlignment="Stretch" Margin="0,2,0,0" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="5"/>
+                                            <Button Content="Вверх" Click="Button_Click_MoveUp" VerticalAlignment="Stretch" Margin="0,0,2,4" Grid.Column="3" Grid.Row="4" />
+                                            <Button Content="Вниз" Click="Button_Click_MoveDown" VerticalAlignment="Stretch" Margin="2,0,0,4" Grid.Column="6" Grid.Row="4" />
+                                            <CheckBox Margin="0, 5, 0, 0" FlowDirection="LeftToRight" Content="R" IsChecked="{Binding R}" Grid.Row="6" Grid.Column="0"/>
+                                            <CheckBox Margin="0, 5, 0, 0" FlowDirection="LeftToRight" Content="G" IsChecked="{Binding G}" Grid.Row="6" Grid.Column="1"/>
+                                            <CheckBox Margin="0, 5, 0, 0" FlowDirection="LeftToRight" Content="B" IsChecked="{Binding B}" Grid.Row="6" Grid.Column="2"/>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Button  Click="Button_Click_OpenFile" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="0" Grid.Row="1">
+                                <TextBlock> Открыть <LineBreak/> изображение</TextBlock>
+                            </Button>
+                            <Button Click="Button_Click_SaveFile" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="1" Grid.Row="1">
+                                <TextBlock> Сохранить <LineBreak/> изображение</TextBlock>
+                            </Button>
+                            <Button Content="Перерасчёт" Click="Button_Click_Recalculate" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="2" Grid.Row="1"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel>
+                    <TextBlock> ГрадацПреоб</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
 </Window>

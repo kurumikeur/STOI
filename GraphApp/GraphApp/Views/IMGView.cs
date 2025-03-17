@@ -15,6 +15,7 @@ namespace GraphApp.Views
     {
         private BitmapSource _imgData;
         private PixelOperations _operation = PixelOperations.GetPixelOperationsList()[0];
+        private GradationOperations _gradOp = GradationOperations.GetGradationOperationsList()[0];
 
         private string _name = "";
         private bool _r = true;

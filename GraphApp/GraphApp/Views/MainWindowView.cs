@@ -26,6 +26,20 @@ namespace GraphApp.Views
                 OnPropertyChanged(nameof(result_image));
             }
         }
+        private IMGView _grad_img;
+        public IMGView grad_img
+        {
+            get
+            {
+                return grad_img;
+            }
+            set
+            {
+                _grad_img = value;
+                OnPropertyChanged(nameof(grad_img));
+            }
+        }
+
         private ObservableCollection<IMGView> _imgs = new ObservableCollection<IMGView>();
         public ObservableCollection<IMGView> Imgs
         {
