@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using GraphApp.Models;
 
 namespace GraphApp.Views
 {
     public class MainWindowView : BaseView
     {
         private byte[] buffer_bytes;
-        private BitmapSource _result_image;
+        private BitmapSource _result_image = BitmapSource.Create(1, 1, 1, 1, PixelFormats.Bgra32, null, new byte[] { 0, 0, 0, 0 }, 4);
         public BitmapSource result_image
         {
             get
@@ -26,20 +27,6 @@ namespace GraphApp.Views
                 OnPropertyChanged(nameof(result_image));
             }
         }
-        private IMGView _grad_img;
-        public IMGView grad_img
-        {
-            get
-            {
-                return grad_img;
-            }
-            set
-            {
-                _grad_img = value;
-                OnPropertyChanged(nameof(grad_img));
-            }
-        }
-
         private ObservableCollection<IMGView> _imgs = new ObservableCollection<IMGView>();
         public ObservableCollection<IMGView> Imgs
         {
@@ -52,13 +39,11 @@ namespace GraphApp.Views
             }
         }
 
-
         public void AddIMGView(IMGView _imgview)
         {
             Imgs.Add(_imgview);
 
         }
-
         public void MoveUp(object obj)
         {
             var imgview = (IMGView)obj;
@@ -66,7 +51,6 @@ namespace GraphApp.Views
             if (index != 0) 
                 Imgs.Move(index, index - 1);
         }
-
         public void MoveDown(object obj)
         {
             var imgview = (IMGView)obj;
@@ -74,7 +58,6 @@ namespace GraphApp.Views
             if (index != Imgs.Count() - 1)
                 Imgs.Move(index, index + 1);
         }
-
         public void DeleteImg(object obj)
         {
             try
@@ -86,7 +69,6 @@ namespace GraphApp.Views
 
             }
         }
-
         public void CalculateLayers()
         {
             var properties = (from img in Imgs

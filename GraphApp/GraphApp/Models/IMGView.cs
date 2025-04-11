@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
+using GraphApp.Views;
 
 
 
-namespace GraphApp.Views
+namespace GraphApp.Models
 {
     public class IMGView : BaseView
     {
         private BitmapSource _imgData;
         private PixelOperations _operation = PixelOperations.GetPixelOperationsList()[0];
-        private GradationOperations _gradOp = GradationOperations.GetGradationOperationsList()[0];
+        private GradationOperations _gradoperation = GradationOperations.GetGradationOperationsList()[0];
 
         private string _name = "";
         private bool _r = true;
@@ -93,8 +94,11 @@ namespace GraphApp.Views
             }
         }
 
-
-
+        public GradationOperations gradOperation
+        {
+            get { return _gradoperation; }
+            set { _gradoperation = value; OnPropertyChanged(nameof(_gradoperation)); }
+        }
         public PixelOperations operation
         {
             get => _operation;

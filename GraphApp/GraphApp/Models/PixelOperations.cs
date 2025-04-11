@@ -64,4 +64,6 @@ namespace GraphApp.Views
             return _operations ;
         } 
     }
+
+
 }

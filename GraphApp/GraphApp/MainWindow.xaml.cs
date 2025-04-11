@@ -13,8 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GraphApp.Models;
 using GraphApp.Views;
 using Microsoft.Win32;
+
 
 
 namespace GraphApp
@@ -25,16 +27,20 @@ namespace GraphApp
     public partial class MainWindow : Window
     {
         private MainWindowView MWV;
+        private GradWindowView GWV;
+
         public MainWindow()
         {
             InitializeComponent();
 
             MWV = new MainWindowView();
+            GWV = new GradWindowView();
             this.Title = "JokerPoker - Balala";
             this.DataContext = MWV;
             listBox.ItemsSource = MWV.Imgs;
-           
-            
+            GradTab.DataContext = GWV;
+            GWV_Graph.Source = GWV.result_graph;
+
         }
 
         private void Button_Click_OpenFile(object sender, RoutedEventArgs e)
@@ -103,5 +109,39 @@ namespace GraphApp
         {
             MWV.MoveDown(((FrameworkElement)e.Source).DataContext);
         }
+        private void Button_Click_GradController(object sender, RoutedEventArgs e)
+        {
+            var val = ((Button)sender).Tag as string;
+            switch (val)
+            {
+                case "OpenFile":
+                    {
+                        GWV.OpenFile();
+                        GWV_Histo.Source = GWV.result_histo;
+                        GWV_Graph.Source = GWV.result_graph;
+                    }
+                    break;
+                case "SaveFile":
+                    {
+                        GWV.SaveFile();
+                    }
+                    break;
+                case "AddPoint":
+                    {
+                        GWV.AddPoint();
+                        GWV_Graph.Source = GWV.result_graph;
+                    }
+                    break;
+                case "ResetPoints":
+                    {
+                        GWV.ResetPoints();
+                        GWV_Graph.Source = GWV.result_graph;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

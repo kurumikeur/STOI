@@ -93,7 +93,7 @@
                 </Grid>
             </TabItem.Content>
         </TabItem>
-        <TabItem>
+        <TabItem x:Name="GradTab">
             <TabItem.Header>
                 <StackPanel>
                     <TextBlock> ГрадацПреоб</TextBlock>
@@ -101,9 +101,75 @@
             </TabItem.Header>
             <TabItem.Content>
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="120pt"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="250pt"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25pt"/>
+                            <RowDefinition Height="25pt"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20pt"/>
+                            <ColumnDefinition Width="60pt"/>
+                            <ColumnDefinition Width="20pt"/>
+                            <ColumnDefinition Width="60pt"/>
+                            <ColumnDefinition Width="80pt"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="GWV_Graph" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
+                        <ListBox ItemsSource="{Binding Path=Points}" d:ItemsSource="{d:SampleData}" Grid.Column="5" Margin="5,5,5,5" Grid.RowSpan="3" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <Run Text="("></Run>
+                                        <Run Text="{Binding Path=X}"></Run>
+                                        <Run Text=";"></Run>
+                                        <Run Text="{Binding Path=Y}"></Run>
+                                        <Run Text=")"></Run>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock VerticalAlignment="Center" FontSize="16pt"> X:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" FontSize="16pt" Grid.Column="2"> Y:</TextBlock>
+                        <TextBox x:Name="grad_x" Text="{Binding X}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,5,10,5"> </TextBox>
+                        <TextBox x:Name="grad_y" Text="{Binding Y}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Margin="0,5,10,5"> </TextBox>
+                        <Button Click="Button_Click_GradController" Tag="AddPoint" Grid.Column="4" Margin="0,5,0,5"> Добавить</Button>
+                        <Button Click="Button_Click_GradController" Tag="ResetPoints" Grid.Column="4" Grid.Row="1" Margin="0,5,0,5"> Удалить все</Button>
+                        <Canvas x:Name="_canvas" Margin="5, 5, 5, 5" Grid.Column="0" Grid.Row="0"/>
+                    </Grid>
                     
+                    <Image Source="{Binding Path=result_image}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
+                    <Image x:Name="GWV_Histo" HorizontalAlignment="Stretch" Stretch="Fill" RenderOptions.BitmapScalingMode="Fant" Grid.Row="1" Grid.Column="0" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ComboBox ItemsSource="{Binding gradOperation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding gradOperation}"  Margin="6, 0, 5, 5" Grid.Column="0" Grid.Row="0"/>
+                        <Button  Click="Button_Click_GradController" Tag="GetImageFromMWV" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="0" Grid.Row="1">
+                            <TextBlock> Загрузить изображение из пикс. оп.</TextBlock>
+                        </Button>
+                        <Button  Click="Button_Click_GradController" Tag="OpenFile" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="0" Grid.Row="2">
+                            <TextBlock> Открыть изображение</TextBlock>
+                        </Button>
+                        <Button  Click="Button_Click_GradController" Tag="SaveFile" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="0" Grid.Row="3">
+                            <TextBlock> Сохранить изображение</TextBlock>
+                        </Button>
+                    </Grid>
+                    <Canvas Grid.Column="1"/>
                 </Grid>
             </TabItem.Content>
         </TabItem>
+        
     </TabControl>
 </Window>
