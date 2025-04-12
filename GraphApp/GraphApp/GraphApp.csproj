@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\LineDrawing.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Models\GradationOperations.cs" />
     <Compile Include="Models\IMGView.cs" />

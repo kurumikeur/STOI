@@ -12,6 +12,8 @@ using System.Windows.Media.TextFormatting;
 using GraphApp.Models;
 using GraphApp;
 using System.IO;
+using Point = System.Drawing.Point;
+using System.Security.Cryptography;
 
 
 
@@ -19,7 +21,6 @@ namespace GraphApp.Views
 {
     public class GradWindowView : BaseView
     {
-        private byte[] buffer_bytes;
         private BitmapSource _result_image = BitmapSource.Create(1, 1, 1, 1, PixelFormats.Bgra32, null, new byte[] { 0, 0, 0, 0 }, 4);
         private BitmapSource _result_histo = BitmapSource.Create(1, 1, 1, 1, PixelFormats.Bgra32, null, new byte[] { 0, 0, 0, 0 }, 4);
         private BitmapSource _result_graph;
@@ -150,32 +151,52 @@ namespace GraphApp.Views
             {
                 buffer_bytes[index] = 255;
             });
-            for (int i = 0; i < graph_width; i += k) //Линии
+           
+            foreach (Point p2 in Points) //
             {
-                Point p2 = Points.Where(p => p.X > i / k).FirstOrDefault();
-                if (Points.IndexOf(p2) - 1 < 0)
-                    break;
-                Point p1 = Points[Points.IndexOf(p2) - 1];
-                int y = gradOperation._operation(p2, p1, i / k);
-                int x = i * 3;
-                int pix = ((graph_height - 1 - y * k) * stride) + x;
-                int step_y = (p2.X - p1.X) != 0 ? (int)Math.Ceiling((p2.Y - p1.Y) / (p2.X - p1.X)) : (int)(p2.Y - p1.Y);
-                while (step_y != 0)
+                int index = Points.IndexOf(p2);
+                if (index == 0)
+                    continue;
+                Point p1 = Points[index - 1];
+                List<Point> DrawPoints = LineDrawing.BresenhamLine(p1, p2);
+                foreach (Point p in DrawPoints)
                 {
-                    for (int n = 0; n < k; n++)
-                    {
-                        if (pix + stride * step_y >= buff_size || pix + stride * step_y < 0)
-                        {
-                            step_y = step_y > 0 ? --step_y : ++step_y;
-                            continue;
-                        }
-                        buffer_bytes[pix - stride * step_y] = 0;
-                        buffer_bytes[pix - stride * step_y + 1] = 0;
-                        buffer_bytes[pix - stride * step_y + 2] = 0;
-                        step_y = step_y > 0 ? --step_y: ++step_y;
-                    }
+                    int pix = ((graph_height - 1) - p.Y) * stride + p.X * 3;
+                    buffer_bytes[pix] = 0;
+                    buffer_bytes[pix + 1] = 0;
+                    buffer_bytes[pix + 2] = 0;
                 }
-            }
+             }
+
+            //foreach (Point p2 in Points) //
+            //{
+            //    int index = Points.IndexOf(p2);
+            //    if (index == 0)
+            //        continue;
+            //    Point p1 = Points[index - 1];
+            //    int y1 = (int)p1.Y, y2 = (int)p2.Y;
+            //    int x1 = (int)p1.X, x2 = (int)p2.X;
+            //    int diff_y = y2 - y1, diff_x = x2 - x1;
+
+            //    int step = diff_y >= diff_x ? diff_y / diff_x : diff_x / diff_y;
+            //    int neg = diff_y * diff_x > 0 ? -1 : 1;
+            //    int pix = ((graph_height - 1) - y1) * stride + x1 * 3, last_pix = ((graph_height - 1) - y2) * stride + x2 * 3;
+
+            //    while (pix != last_pix)
+            //    {
+            //        if (pix < 0 || pix > buff_size)
+            //            break;
+            //        for (int i = step; i > 0; i--)
+            //        {
+            //            buffer_bytes[pix] = 0;
+            //            buffer_bytes[pix + 1] = 0;
+            //            buffer_bytes[pix + 2] = 0;
+            //            pix = diff_y >= diff_x ? pix + stride * neg : pix + 3;
+            //        }
+            //        pix = diff_y >= diff_x ? pix + 3 : pix + stride * neg;
+            //    }
+            //}
+
             foreach (Point p in Points) //Красные квадраты в точках
             {
                 int center_pix = (graph_height - 1 - ((int)p.Y) * k) * stride + (int)p.X * k * 3;
