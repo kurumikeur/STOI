@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="583" Width="800">
     <TabControl>
-        <TabItem>
+        <TabItem DataContext="{Binding Path=MWV}">
             <TabItem.Header>
                 <StackPanel>
                     <TextBlock> ПопиксОпер</TextBlock>
@@ -35,7 +35,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="36pt"/>
                             </Grid.RowDefinitions>
-                            <ListBox x:Name="listBox" ScrollViewer.VerticalScrollBarVisibility="Visible"  d:ItemsSource="{d:SampleData}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan ="3" Margin="0,0,0,5">
+                            <ListBox ItemsSource="{Binding Path=Imgs}" ScrollViewer.VerticalScrollBarVisibility="Visible"  d:ItemsSource="{d:SampleData}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan ="3" Margin="0,0,0,5">
                                 <!--ItemsSource="{Binding Path=Imgs}"-->
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
@@ -93,7 +93,7 @@
                 </Grid>
             </TabItem.Content>
         </TabItem>
-        <TabItem x:Name="GradTab">
+        <TabItem DataContext="{Binding Path=GWV}">
             <TabItem.Header>
                 <StackPanel>
                     <TextBlock> ГрадацПреоб</TextBlock>
@@ -123,7 +123,7 @@
                             <ColumnDefinition Width="80pt"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image x:Name="GWV_Graph" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
+                        <Image Source="{Binding result_graph}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
                         <ListBox ItemsSource="{Binding Path=Points}" d:ItemsSource="{d:SampleData}" Grid.Column="5" Margin="5,5,5,5" Grid.RowSpan="3" ScrollViewer.VerticalScrollBarVisibility="Visible">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
@@ -139,15 +139,14 @@
                         </ListBox>
                         <TextBlock VerticalAlignment="Center" FontSize="16pt"> X:</TextBlock>
                         <TextBlock VerticalAlignment="Center" FontSize="16pt" Grid.Column="2"> Y:</TextBlock>
-                        <TextBox x:Name="grad_x" Text="{Binding X}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,5,10,5"> </TextBox>
-                        <TextBox x:Name="grad_y" Text="{Binding Y}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Margin="0,5,10,5"> </TextBox>
-                        <Button Click="Button_Click_GradController" Tag="AddPoint" Grid.Column="4" Margin="0,5,0,5"> Добавить</Button>
-                        <Button Click="Button_Click_GradController" Tag="ResetPoints" Grid.Column="4" Grid.Row="1" Margin="0,5,0,5"> Удалить все</Button>
-                        <Canvas x:Name="_canvas" Margin="5, 5, 5, 5" Grid.Column="0" Grid.Row="0"/>
+                        <TextBox x:Name="grad_x" Text="{Binding X}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,5,10,5"></TextBox>
+                        <TextBox x:Name="grad_y" Text="{Binding Y}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Margin="0,5,10,5"></TextBox>
+                        <Button Click="Button_Click_GradController" Tag="AddPoint" Grid.Column="4" Margin="0,5,0,5">Добавить</Button>
+                        <Button Click="Button_Click_GradController" Tag="ResetPoints" Grid.Column="4" Grid.Row="1" Margin="0,5,0,5">Удалить все</Button>
                     </Grid>
-                    
+
                     <Image Source="{Binding Path=result_image}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
-                    <Image x:Name="GWV_Histo" HorizontalAlignment="Stretch" Stretch="Fill" RenderOptions.BitmapScalingMode="Fant" Grid.Row="1" Grid.Column="0" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
+                    <Image Source="{Binding Path=result_histo}" HorizontalAlignment="Stretch" Stretch="Fill" RenderOptions.BitmapScalingMode="Fant" Grid.Row="1" Grid.Column="0" Margin="0, 5, 5, 5" Width="auto" Height="auto"/>
                     <Grid Grid.Row="1" Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -170,6 +169,74 @@
                 </Grid>
             </TabItem.Content>
         </TabItem>
-        
+        <TabItem DataContext="{Binding BWV}">
+            <TabItem.Header>
+                <StackPanel>
+                    <TextBlock> Бинаризация</TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid Margin="0, 0, 0, 0" Width="Auto" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20pt"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Исходное изображение" VerticalAlignment="Bottom" Margin="0,0,0,5"></TextBlock>
+                        <Image Source="{Binding input_image}" Grid.Row="1"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20pt"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Конвертированое изображение" VerticalAlignment="Bottom" Margin="0,0,0,5"></TextBlock>
+                        <Image Source="{Binding result_convertedimage}" Grid.Row="1"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20pt"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="120pt"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Итоговое изображение" VerticalAlignment="Bottom" Margin="0,0,0,5"></TextBlock>
+                        <Image Source="{Binding result_image}" Grid.Row="1"/>
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Bottom">Окно a</TextBlock>
+                            <TextBlock VerticalAlignment="Bottom" Grid.Column="1">Чувствительность k</TextBlock>
+                            <TextBox Text="{Binding Area}" Grid.Row="1" Margin="0,5,5,0"></TextBox>
+                            <TextBox Text="{Binding K}" Grid.Row="1" Grid.Column="1" Margin="0,5,5,0"></TextBox>
+                            <ComboBox ItemsSource="{Binding Path=BinarOperation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding BinarOperation}" Grid.Row="2" Grid.ColumnSpan="2" Margin="0, 5, 5, 0" />
+                            <Button Click="Button_Click_BinarController" Tag="OpenFile" Margin="0,5,5,5" Grid.Row="3">
+                                <TextBlock Text="Открыть файл"/>
+                            </Button>
+                            <Button Click="Button_Click_BinarController" Tag="SaveFile" Margin="5,5,5,5" Grid.Row="3" Grid.Column="1">
+                                <TextBlock Text="Сохранить изображение"/>
+                            </Button>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
     </TabControl>
 </Window>

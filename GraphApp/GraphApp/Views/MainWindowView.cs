@@ -24,7 +24,7 @@ namespace GraphApp.Views
             set
             {
                 _result_image = value;
-                OnPropertyChanged(nameof(result_image));
+                OnPropertyChanged(nameof(_result_image));
             }
         }
         private ObservableCollection<IMGView> _imgs = new ObservableCollection<IMGView>();

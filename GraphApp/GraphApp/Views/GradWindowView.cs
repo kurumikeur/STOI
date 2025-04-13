@@ -56,8 +56,15 @@ namespace GraphApp.Views
         }
         public BitmapSource result_graph
         {
-            get { return _result_graph; }
-            set { _result_graph = value; OnPropertyChanged(nameof(result_graph)); }
+            get 
+            { 
+                return _result_graph; 
+            }
+            set 
+            { 
+                _result_graph = value; 
+                OnPropertyChanged(nameof(result_graph)); 
+            }
         }
         public IMGView Img
         {
@@ -119,7 +126,7 @@ namespace GraphApp.Views
                     int b = Img.ImgBytes[IMGView.GetImageByte(j, i, 0, Img.Width)];
                     int g = Img.ImgBytes[IMGView.GetImageByte(j, i, 1, Img.Width)];
                     int r = Img.ImgBytes[IMGView.GetImageByte(j, i, 2, Img.Width)];
-                    index = (int)((double)(b + g + r) / 3.0 % 256);
+                    index = (int)(Math.Round((b + g + r) / 3.0 % 256));
                     buffer[index] += 1;
                 }
             }
@@ -137,9 +144,7 @@ namespace GraphApp.Views
                     buffer_bytes[j + 2] = (byte)255;
                 }
             }
-
-            BitmapSource histo_bitmap = BitmapSource.Create(histo_width, histo_height, 96, 96, PixelFormats.Gray8, null, buffer_bytes, histo_width);
-            _result_histo = histo_bitmap;
+            result_histo = BitmapSource.Create(histo_width, histo_height, 96, 96, PixelFormats.Gray8, null, buffer_bytes, histo_width);
         }
         public void CalculateGraph()
         {
@@ -217,8 +222,7 @@ namespace GraphApp.Views
                     }
                 }
             }
-            BitmapSource graph_bitmap = BitmapSource.Create(graph_height, graph_width, 96, 96, PixelFormats.Bgr24, null, buffer_bytes, stride);
-            _result_graph = graph_bitmap;
+            result_graph = BitmapSource.Create(graph_height, graph_width, 96, 96, PixelFormats.Bgr24, null, buffer_bytes, stride);
 
         }
         public void CalculateLayers()
@@ -238,7 +242,7 @@ namespace GraphApp.Views
                 (3, true)
             };
 
-            byte[] buffer_bytes = Img.ImgBytes;
+            byte[] buffer_bytes = (byte[])Img.ImgBytes.Clone();
             int buffer_size = Img.Width * Img.Height - 1;
             Parallel.For(0, buffer_size, index =>
             {
@@ -256,8 +260,6 @@ namespace GraphApp.Views
             
             CalculateHistogram();
             result_image = BitmapSource.Create(Img.Width, Img.Height, 96, 96, PixelFormats.Bgra32, null, buffer_bytes, Img.Width * 4);
-
-            //result_image = BitmapSource.Create(Img.Width, Img.Height, 96, 96, PixelFormats.Bgra32, null, buffer_bytes, Img.Width * 4);
         }
         public void AddIMGView(IMGView _imgv)
         {
@@ -284,7 +286,7 @@ namespace GraphApp.Views
             Points.Clear();
             Points.Add(new Point(0, 0));
             Points.Add(new Point(255, 255));
-            CalculateGraph();
+            CalculateLayers();
         }
         public void DeleteImg(IMGView Img)
         {

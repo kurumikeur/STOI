@@ -26,20 +26,19 @@ namespace GraphApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowView MWV;
-        private GradWindowView GWV;
+        public MainWindowView MWV { get; set; }
+        public GradWindowView GWV { get; set; }
+        public BinarWindowView BWV { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
+            this.DataContext = this;
             MWV = new MainWindowView();
             GWV = new GradWindowView();
-            this.Title = "JokerPoker - Balala";
-            this.DataContext = MWV;
-            listBox.ItemsSource = MWV.Imgs;
-            GradTab.DataContext = GWV;
-            GWV_Graph.Source = GWV.result_graph;
+            BWV = new BinarWindowView();
+            this.Title = "Teto";
 
         }
 
@@ -59,8 +58,9 @@ namespace GraphApp
                     MWV.AddIMGView(new IMGView { ImgData = new BitmapImage(new Uri(filename)), Name = F.Name });
                     MWV.CalculateLayers();
                 }
-                catch (Exception ex) { 
-                    
+                catch (Exception ex)
+                {
+
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace GraphApp
             {
                 using (System.IO.FileStream fs = (System.IO.FileStream)dlg.OpenFile())
                 {
-                    
+
                     BitmapEncoder encoder = new PngBitmapEncoder();
                     encoder.Frames.Add(BitmapFrame.Create(Image));
                     encoder.Save(fs);
@@ -117,8 +117,6 @@ namespace GraphApp
                 case "OpenFile":
                     {
                         GWV.OpenFile();
-                        GWV_Histo.Source = GWV.result_histo;
-                        GWV_Graph.Source = GWV.result_graph;
                     }
                     break;
                 case "SaveFile":
@@ -129,19 +127,35 @@ namespace GraphApp
                 case "AddPoint":
                     {
                         GWV.AddPoint();
-                        GWV_Graph.Source = GWV.result_graph;
+                        break;
                     }
-                    break;
                 case "ResetPoints":
                     {
                         GWV.ResetPoints();
-                        GWV_Graph.Source = GWV.result_graph;
                     }
                     break;
                 default:
                     break;
             }
         }
-
+        private void Button_Click_BinarController(object sender, RoutedEventArgs e)
+        {
+            var val = ((Button)sender).Tag as string;
+            switch (val)
+            {
+                case "OpenFile":
+                    {
+                        BWV.OpenFile();
+                    }
+                    break;
+                case "SaveFile":
+                    {
+                        BWV.SaveFile();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
