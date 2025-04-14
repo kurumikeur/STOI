@@ -154,7 +154,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ComboBox ItemsSource="{Binding gradOperation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding gradOperation}"  Margin="6, 0, 5, 5" Grid.Column="0" Grid.Row="0"/>
+                        <ComboBox Visibility="Hidden" ItemsSource="{Binding gradOperation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding gradOperation}"  Margin="6, 0, 5, 5" Grid.Column="0" Grid.Row="0"/>
                         <Button  Click="Button_Click_GradController" Tag="GetImageFromMWV" VerticalAlignment="Stretch" Margin="6,0,5,5" Grid.Column="0" Grid.Row="1">
                             <TextBlock> Загрузить изображение из пикс. оп.</TextBlock>
                         </Button>
