@@ -29,18 +29,28 @@ namespace GraphApp
         public MainWindowView MWV { get; set; }
         public GradWindowView GWV { get; set; }
         public BinarWindowView BWV { get; set; }
+        public FiltrWindowView FWV { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
+            this.Title = "Teto";
             this.DataContext = this;
             MWV = new MainWindowView();
             GWV = new GradWindowView();
             BWV = new BinarWindowView();
-            this.Title = "Teto";
+            FWV = new FiltrWindowView();
 
         }
+
+        //private void FiltInputBoxKeyHandler(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Key == Key.Enter)
+        //    {
+        //        FWV.Input.Append('\n');
+        //    }
+        //}
 
         private void Button_Click_OpenFile(object sender, RoutedEventArgs e)
         {
@@ -48,7 +58,6 @@ namespace GraphApp
             dlg.Filter = "All files (*.*) |*.jpg;*.png;*.jpeg;*.gif| JPG Files (*.jpg) | JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|*.jpg|GIF Files (*.gif)|*.gif";
 
             Nullable<bool> result = dlg.ShowDialog();
-
             if (result == true)
             {
                 string filename = dlg.FileName;
@@ -152,6 +161,27 @@ namespace GraphApp
                     {
                         BWV.SaveFile();
                     }
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void Button_Click_FiltrController(object sender, RoutedEventArgs e)
+        {
+            var val = ((Button)sender).Tag as string;
+            switch (val)
+            {
+                case "Calculate":
+                    FWV.CalculateLayers();
+                    break;
+                case "Gauss":
+                    FWV.CalculateGauss();
+                    break;
+                case "OpenFile":
+                    FWV.OpenFile();
+                    break;
+                case "SaveFile":
+                    FWV.SaveFile();
                     break;
                 default:
                     break;

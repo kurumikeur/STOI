@@ -238,5 +238,99 @@
                 </Grid>
             </TabItem.Content>
         </TabItem>
+        <TabItem DataContext="{Binding FWV}">
+            <TabItem.Header>
+                <StackPanel>
+                    <TextBlock><Run Text="Фильтрация"/></TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Margin="0, 0, 0, 0" Width="Auto" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Width="Auto" Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20pt"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Исходное изображение" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+                    <Image Source="{Binding Img.ImgData}" Grid.Row="1" Margin="0,0,5,5"/>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20pt"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20pt"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Матрица" VerticalAlignment="Bottom" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding Input}" x:Name="FiltInputBox" Grid.Row="1" Margin="0,5,5,0" AcceptsReturn="True"
+                             ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.VerticalScrollBarVisibility="auto">
+                    </TextBox>
+                    <TextBlock Text="{Binding Status}" VerticalAlignment="Bottom" Margin="0,0,0,5" Grid.Row="2"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="Auto" Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20pt"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="120pt"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Итоговое изображение" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+                    <Image Source="{Binding result_image}" Grid.Row="1"/>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Bottom"><Run Text="Окно медиан. фильт."/></TextBlock>
+                        <TextBlock VerticalAlignment="Bottom" Grid.Column="1"><Run Text="Размерность матрицы"/></TextBlock>
+                        <TextBlock VerticalAlignment="Bottom" Grid.Column="2"><Run Text="Коэф. sigma"/></TextBlock>
+                        <TextBox Text="{Binding Median_area}" Grid.Row="1" Margin="0,5,5,0"/>
+                        <TextBox Text="{Binding Gauss_area}" Grid.Row="1" Grid.Column="1" Margin="0,5,5,0"/>
+                        <TextBox Text="{Binding Sigma}" Grid.Row="1" Grid.Column="2" Margin="0,5,5,0"/>
+                        <ComboBox ItemsSource="{Binding FiltOperation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding FiltOperation}" Grid.Row="2" Grid.ColumnSpan="3" Margin="0, 5, 5, 0" />
+                        <Grid Grid.ColumnSpan="3" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="Button_Click_FiltrController" Tag="Gauss" Margin="0,5,5,5" Grid.Row="3" Grid.Column="0">
+                                <TextBlock Text="Расчёт матрицы по ауссу"/>
+                            </Button>
+                            <Button Click="Button_Click_FiltrController" Tag="Calculate" Margin="5,5,5,5" Grid.Row="3" Grid.Column="1">
+                                <TextBlock Text="Расчёт"/>
+                            </Button>
+ 
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="Button_Click_FiltrController" Tag="OpenFile" Margin="0,5,5,5" Grid.Row="3">
+                                <TextBlock Text="Открыть файл"/>
+                            </Button>
+                            <Button Click="Button_Click_FiltrController" Tag="SaveFile" Margin="5,5,5,5" Grid.Row="3" Grid.Column="1">
+                                <TextBlock Text="Сохранить в файл"/>
+                            </Button>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>
