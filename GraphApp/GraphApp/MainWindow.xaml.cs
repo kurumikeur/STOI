@@ -30,6 +30,7 @@ namespace GraphApp
         public GradWindowView GWV { get; set; }
         public BinarWindowView BWV { get; set; }
         public FiltrWindowView FWV { get; set; }
+        public FreqFiltrWindowView FFWV { get; set; }
 
         public MainWindow()
         {
@@ -41,6 +42,7 @@ namespace GraphApp
             GWV = new GradWindowView();
             BWV = new BinarWindowView();
             FWV = new FiltrWindowView();
+            FFWV = new FreqFiltrWindowView();
 
         }
 
@@ -73,7 +75,6 @@ namespace GraphApp
                 }
             }
         }
-
         private void Button_Click_SaveFile(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
@@ -182,6 +183,24 @@ namespace GraphApp
                     break;
                 case "SaveFile":
                     FWV.SaveFile();
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void Button_Click_FreqFiltrController(object sender, RoutedEventArgs e)
+        {
+            var val = ((Button)sender).Tag as string;
+            switch (val)
+            {
+                case "Calculate":
+                    FFWV.CalculateLayers();
+                    break;
+                case "OpenFile":
+                    FFWV.OpenFile();
+                    break;
+                case "SaveFile":
+                    FFWV.SaveFile();
                     break;
                 default:
                     break;
