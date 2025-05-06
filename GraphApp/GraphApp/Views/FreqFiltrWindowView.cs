@@ -84,24 +84,17 @@ namespace GraphApp.Views
             int height = Img.Height;
             for (int i = 0; i < buffer_bytes.Length / 4; i++)
             {
-                b_channel_ints[i] = (int)Img.ImgBytes[i + 0] * (int)Math.Pow(-1, (i / (Img.Width)) + ((i % (Img.Width))));
-                g_channel_ints[i] = (int)Img.ImgBytes[i + 1] * (int)Math.Pow(-1, (i / (Img.Width)) + ((i % (Img.Width))));
-                r_channel_ints[i] = (int)Img.ImgBytes[i + 2] * (int)Math.Pow(-1, (i / (Img.Width)) + ((i % (Img.Width))));
+                b_channel_ints[i] = (int)Img.ImgBytes[i * 4 + 0];
+                g_channel_ints[i] = (int)Img.ImgBytes[i * 4 + 1];
+                r_channel_ints[i] = (int)Img.ImgBytes[i * 4 + 2];
                 buffer_bytes[i * 4 + 3] = 255;
-            }
-            for (int i = 0; i < buffer_bytes.Length; i++)
-            {
-                if (i % 4 == 3)
-                {
-                    buffer_ints[i] = 255;
-                    continue;
-                }
-                buffer_ints[i] = (int)Img.ImgBytes[i] * (int)Math.Pow(-1, (i / (Img.Width * 4)) + ((i % (Img.Width * 4)) / 4));
             }
             _fourier_array = new Complex[Img.Height * Img.Width * 4];
             int N = height;
             int M = width;
             Complex[] buff_array = new Complex[Img.Width * Img.Height * 4];
+
+
             Parallel.For(0, N, w =>
             {
                 for (int n = 0; n < M; n++)
@@ -143,9 +136,8 @@ namespace GraphApp.Views
             double max_val = 0;
             for (int i = 0; i < height * width * 4; i++)
             {
-                double avg = Math.Sqrt(Math.Pow(_fourier_array[i].Imaginary, 2) + Math.Pow(_fourier_array[i].Real, 2));
-                if (max_val < Math.Log(avg + 1))
-                    max_val = Math.Log(avg + 1);
+                if (max_val < Math.Log(_fourier_array[i].Magnitude + 1))
+                    max_val = Math.Log(_fourier_array[i].Magnitude + 1);
 
             }
 
@@ -155,14 +147,13 @@ namespace GraphApp.Views
                     buffer_bytes[i] = 255;
                     continue;
                 }
-                double avg = Math.Sqrt(Math.Pow(_fourier_array[i].Imaginary, 2) + Math.Pow(_fourier_array[i].Real, 2)) * 25;
-                buffer_bytes[i] = (byte)(int)(Math.Round(avg));
+                buffer_bytes[i] = (byte)(int)(Math.Ceiling(_fourier_array[i].Magnitude * 6));
                 
             }
 
 
 
-            result_fourier_image = BitmapSource.Create(Img.Width, Img.Height, 96, 96, PixelFormats.Bgra32, null, buffer_bytes, Img.Width * 4);
+            result_fourier_image = BitmapSource.Create(Img.Width, Img.Height, 48, 48, PixelFormats.Bgra32, null, buffer_bytes, Img.Width * 4);
         }
         //private void CalculateMedianSquare(string position, string side, byte[] buffer_bytes, double[] buffer_doubles)
         //{
