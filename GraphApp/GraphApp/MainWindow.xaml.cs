@@ -30,7 +30,7 @@ namespace GraphApp
         public GradWindowView GWV { get; set; }
         public BinarWindowView BWV { get; set; }
         public FiltrWindowView FWV { get; set; }
-        public FreqFiltrWindowView FFWV { get; set; }
+        public FreqFilterWindowView FFWV { get; set; }
 
         public MainWindow()
         {
@@ -42,7 +42,7 @@ namespace GraphApp
             GWV = new GradWindowView();
             BWV = new BinarWindowView();
             FWV = new FiltrWindowView();
-            FFWV = new FreqFiltrWindowView();
+            FFWV = new FreqFilterWindowView();
 
         }
 

@@ -61,12 +61,13 @@
     <Compile Include="Models\Operations\BinarOperations.cs" />
     <Compile Include="Models\Operations\FiltOperations.cs" />
     <Compile Include="Models\LineDrawing.cs" />
+    <Compile Include="Models\Operations\FreqFilterOperations.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Models\Operations\GradationOperations.cs" />
     <Compile Include="Models\IMGView.cs" />
     <Compile Include="Views\BinarWindowView.cs" />
     <Compile Include="Views\FiltrWindowView.cs" />
-    <Compile Include="Views\FreqFiltrWindowView.cs" />
+    <Compile Include="Views\FreqFilterWindowView.cs" />
     <Compile Include="Views\GradWindowView.cs" />
     <Compile Include="Views\MainWindowView.cs" />
     <Compile Include="Models\Operations\PixelOperations.cs" />

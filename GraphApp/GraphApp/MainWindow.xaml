@@ -368,7 +368,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Фурье-образ" VerticalAlignment="Bottom" Margin="0,0,5,0"/>
                     <Image Source="{Binding result_fourier_image}" Grid.Row="1" Margin="0,5,5,5"/>
-                    <Image Source="{Binding result_fourier_image}" Grid.Row="1" Grid.Column="1" Margin="0,5,5,5"/>
+                    <Image Source="{Binding result_filter_image}" Grid.Row="1" Grid.Column="1" Margin="0,5,5,5"/>
                 </Grid>
                 <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="Auto" Height="Auto">
                     <Grid.RowDefinitions>
@@ -392,17 +392,33 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-
-                        <Button Click="Button_Click_FreqFiltrController" Tag="Calculate" Margin="0,5,5,5" Grid.Row="3">
-                            <TextBlock Text="Расчёт"/>
-                        </Button>
-                        <Grid Grid.ColumnSpan="3" Grid.Row="3">
+ 
+                        <TextBlock Text="Внутр. радиус" VerticalAlignment="Bottom" Margin="0, 5, 5, 0"/>
+                        <TextBlock Text="Внеш. радиус" VerticalAlignment="Bottom" Margin="0, 5, 5, 0" Grid.Column="1"/>
+                        <Grid  Grid.Column="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-
+                            <TextBlock Text="Offset X" VerticalAlignment="Bottom" Margin="0, 5, 5, 0" Grid.Column="0"/>
+                            <TextBlock Text="Offset Y" VerticalAlignment="Bottom" Margin="0, 5, 5, 0" Grid.Column="1"/>
                         </Grid>
+                        
+                        <TextBox Text="{Binding Inner_r}" Grid.Row="1" Margin="0, 5, 5, 0"/>
+                        <TextBox Text="{Binding Outer_r}" Grid.Row="1" Grid.Column="1" Margin="0, 5, 5, 0"/>
+                        <Grid Grid.Row="1" Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="{Binding Offset_X}"  Grid.Column="0" Margin="0, 5, 5, 0"/>
+                            <TextBox Text="{Binding Offset_Y}"  Grid.Column="1" Margin="0, 5, 5, 0"/>
+                        </Grid>
+
+                        <Button Click="Button_Click_FreqFiltrController" Tag="Calculate" Margin="0,5,5,5" Grid.Row="3" Grid.ColumnSpan="3">
+                        <TextBlock Text="Расчёт"/>
+                        </Button>
+                        <ComboBox ItemsSource="{Binding FreqOperation.Operations}" DisplayMemberPath="Name" SelectedValue="{Binding FreqOperation}" Grid.Row="2" Grid.ColumnSpan="3" Margin="0, 5, 5, 0"/>
                         <Grid Grid.ColumnSpan="3" Grid.Row="4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
